@@ -18,7 +18,7 @@ const App = () => {
         return response.json();
       })
       .then((charData) => {
-        const selectedCharaters = charData.slice(0, 10);
+        const selectedCharaters = charData.slice(10, 20);
         setIsLoading(false);
         setLoadedChars(
           selectedCharaters.map((char, index) => ({
@@ -37,7 +37,7 @@ const App = () => {
   let content = <p className='content'>Loading characters...</p>;
 
   if (!isLoading && loadedChars && loadedChars.length > 0) {
-    content = <Cards loadedChars={loadedChars} />;
+    content = <Cards className='content' loadedChars={loadedChars} />;
   } else if (!isLoading && (!loadedChars || loadedChars.length === 0)) {
     content = <p className='content'>Could not fetch any data.</p>;
   }

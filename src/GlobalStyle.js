@@ -23,5 +23,6 @@ export const GlobalStyle = createGlobalStyle`
 
   .content {
     flex-grow: 1;
+    background-color: #333;
   }
 `;

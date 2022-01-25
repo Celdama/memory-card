@@ -1,11 +1,20 @@
 import React from 'react';
-import { Wrapper } from './cards.style';
+import Card from '../Card';
+import { Wrapper, Content } from './cards.style';
 
 const Cards = ({ loadedChars }) => {
+  let content = null;
+
   if (loadedChars) {
-    loadedChars.map((char) => console.log(char.name));
+    content = loadedChars.map((char) => (
+      <Card key={char.id} name={char.name} image={char.image} />
+    ));
   }
-  return <Wrapper>Cards Game</Wrapper>;
+  return (
+    <Wrapper>
+      <Content>{content}</Content>
+    </Wrapper>
+  );
 };
 
 export default Cards;
