@@ -20,6 +20,10 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Karla', sans-serif;
   }
 
+  a {
+    text-decoration: none;
+  }
+
   .App {
     min-height: 100vh;
     display: flex;
