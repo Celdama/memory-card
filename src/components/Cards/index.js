@@ -2,7 +2,7 @@ import React from 'react';
 import Card from '../Card';
 import { Wrapper, Content } from './cards.style';
 
-const Cards = ({ loadedChars, handleCurrentChars }) => {
+const Cards = ({ loadedChars, handleAlreadyClickedChars }) => {
   let content = null;
 
   if (loadedChars) {
@@ -11,7 +11,7 @@ const Cards = ({ loadedChars, handleCurrentChars }) => {
         key={char.id}
         name={char.name}
         image={char.image}
-        handleCurrentChars={() => handleCurrentChars(char.id)}
+        handleAlreadyClickedChars={() => handleAlreadyClickedChars(char.id)}
       />
     ));
   }

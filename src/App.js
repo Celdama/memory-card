@@ -9,9 +9,15 @@ import ScoreBoard from './components/ScoreBoard';
 const App = () => {
   const [loadedChars, setLoadedChars] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [currentCharsId, setCurrentCharsId] = useState('');
+  const [listCharsId, setListCharsId] = useState([]);
   const [currentScore, setCurrentScore] = useState(0);
-  const [bestScore, setBestScore] = useState(0);
+  const [bestScore, setBestScore] = useState(
+    () => JSON.parse(localStorage.getItem('bestScore')) || 0
+  );
+
+  useEffect(() => {
+    localStorage.setItem('bestScore', JSON.stringify(bestScore));
+  }, [bestScore]);
 
   useEffect(() => {
     setIsLoading(true);
@@ -26,7 +32,7 @@ const App = () => {
         const selectedCharaters = charData.slice(10, 20);
         setIsLoading(false);
         setLoadedChars(
-          selectedCharaters.map((char, index) => ({
+          selectedCharaters.map((char) => ({
             name: char.name,
             image: char.image,
             id: nanoid(),
@@ -39,29 +45,30 @@ const App = () => {
       });
   }, []);
 
+  const resetGame = () => {
+    setCurrentScore(0);
+    setListCharsId([]);
+  };
+
   const saveBestScore = () => {
     if (bestScore < currentScore) {
       setBestScore(currentScore);
-      setCurrentScore(0);
-    } else {
-      setCurrentScore(0);
     }
+    resetGame();
   };
 
   const incrementeScore = () => {
     setCurrentScore(currentScore + 1);
   };
 
-  const handleCurrentChars = (id) => {
-    setCurrentCharsId((prevId) => {
-      if (prevId === id) {
-        saveBestScore();
-        return '';
-      } else {
-        incrementeScore();
-        return id;
-      }
-    });
+  const handleAlreadyClickedChars = (id) => {
+    setListCharsId((prevId) => [...prevId, id]);
+
+    if (listCharsId.includes(id)) {
+      bestScore < currentScore ? saveBestScore() : resetGame();
+    } else {
+      incrementeScore();
+    }
   };
 
   let content = <p className='content'>Loading characters...</p>;
@@ -71,7 +78,7 @@ const App = () => {
       <Cards
         className='content'
         loadedChars={loadedChars}
-        handleCurrentChars={handleCurrentChars}
+        handleAlreadyClickedChars={handleAlreadyClickedChars}
       />
     );
   } else if (!isLoading && (!loadedChars || loadedChars.length === 0)) {
