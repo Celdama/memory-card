@@ -61,6 +61,10 @@ const App = () => {
     setCurrentScore(currentScore + 1);
   };
 
+  const shuffleListChars = () => {
+    setLoadedChars(loadedChars.sort(() => Math.random() - 0.5));
+  };
+
   const handleAlreadyClickedChars = (id) => {
     setListCharsId((prevId) => [...prevId, id]);
 
@@ -69,6 +73,8 @@ const App = () => {
     } else {
       incrementeScore();
     }
+
+    shuffleListChars();
   };
 
   let content = <p className='content'>Loading characters...</p>;
