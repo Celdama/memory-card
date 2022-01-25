@@ -6,12 +6,12 @@ const Cards = ({ loadedChars, handleAlreadyClickedChars }) => {
   let content = null;
 
   if (loadedChars) {
-    content = loadedChars.map((char) => (
+    content = loadedChars.map(({ id, name, image }) => (
       <Card
-        key={char.id}
-        name={char.name}
-        image={char.image}
-        handleAlreadyClickedChars={() => handleAlreadyClickedChars(char.id)}
+        key={id}
+        name={name}
+        image={image}
+        handleAlreadyClickedChars={() => handleAlreadyClickedChars(id)}
       />
     ));
   }
