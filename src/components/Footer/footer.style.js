@@ -2,6 +2,16 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.footer`
   background-color: #000;
+  padding: 10px;
+`;
+
+export const Content = styled.div`
+  display: flex;
+  justify-content: center;
   color: #fff;
-  padding: 20px 40px;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
 `;
