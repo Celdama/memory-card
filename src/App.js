@@ -31,9 +31,9 @@ const App = () => {
         const selectedCharaters = charData.slice(10, 20);
         setIsLoading(false);
         setLoadedChars(
-          selectedCharaters.map((char) => ({
-            name: char.name,
-            image: char.image,
+          selectedCharaters.map(({ name, image }) => ({
+            name,
+            image,
             id: nanoid(),
           }))
         );
