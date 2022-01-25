@@ -2,7 +2,12 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   :root{
-
+    --black: #000;
+    --white: #fff;
+    --orange: #daa520;
+    --bigFont: 1.6rem;
+    --medFont: 1.2rem;
+    --smallFont: 0.9rem;
   }
 
   * {
@@ -23,6 +28,6 @@ export const GlobalStyle = createGlobalStyle`
 
   .content {
     flex-grow: 1;
-    background-color: #333;
+    background-color: var(--black);
   }
 `;
