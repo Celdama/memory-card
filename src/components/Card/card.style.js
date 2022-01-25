@@ -14,6 +14,11 @@ export const Content = styled.div`
   justify-content: end;
   border: 0.5px solid #fff;
   border-radius: 5px;
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
+  :hover {
+    opacity: 0.8;
+  }
 
   h5 {
     background-color: #fff;
