@@ -6,6 +6,8 @@ import Footer from './components/Footer';
 import Cards from './components/Cards';
 import ScoreBoard from './components/ScoreBoard';
 
+import { useSetLocalStorage } from './hooks/useLocalStorage';
+
 const App = () => {
   const [loadedChars, setLoadedChars] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -15,9 +17,7 @@ const App = () => {
     () => JSON.parse(localStorage.getItem('bestScore')) || 0
   );
 
-  useEffect(() => {
-    localStorage.setItem('bestScore', JSON.stringify(bestScore));
-  }, [bestScore]);
+  useSetLocalStorage(bestScore);
 
   useEffect(() => {
     setIsLoading(true);
