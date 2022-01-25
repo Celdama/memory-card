@@ -1,9 +1,17 @@
-function App() {
+import { GlobalStyle } from './GlobalStyle';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Cards from './components/Cards';
+
+const App = () => {
   return (
     <div className='App'>
-      <h1>Memory Card</h1>
+      <Header />
+      <Cards />
+      <Footer />
+      <GlobalStyle />
     </div>
   );
-}
+};
 
 export default App;
