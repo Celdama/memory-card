@@ -1,8 +1,16 @@
 import React from 'react';
-import { Wrapper } from './header.style';
+import { Wrapper, Content, Logo } from './header.style';
+import StarWarsIcon from '../../images/starwars.png';
 
 const Header = () => {
-  return <Wrapper>Star Wars memory card</Wrapper>;
+  return (
+    <Wrapper>
+      <Content>
+        <Logo src={StarWarsIcon} />
+        <h1>Memory Game</h1>
+      </Content>
+    </Wrapper>
+  );
 };
 
 export default Header;
