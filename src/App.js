@@ -54,7 +54,6 @@ const App = () => {
     if (bestScore < currentScore) {
       setBestScore(currentScore);
     }
-    resetGame();
   };
 
   const incrementeScore = () => {
@@ -68,8 +67,11 @@ const App = () => {
   const handleAlreadyClickedChars = (id) => {
     setListCharsId((prevId) => [...prevId, id]);
 
-    if (listCharsId.includes(id)) {
-      bestScore < currentScore ? saveBestScore() : resetGame();
+    if (listCharsId.includes(id) && currentScore > bestScore) {
+      saveBestScore();
+      resetGame();
+    } else if (listCharsId.includes(id)) {
+      resetGame();
     } else {
       incrementeScore();
     }
