@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.article`
-  border: 0.5px solid #fff;
+  border: 0.5px solid var(--white);
   border-radius: 5px;
 `;
 
 export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 340px;
   height: 340px;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
   border-radius: 5px;
   cursor: pointer;
 
@@ -33,7 +33,7 @@ export const Img = styled.img`
 `;
 
 export const Name = styled.h5`
-  color: #000;
   text-align: center;
-  background-color: #fff;
+  color: var(--black);
+  background-color: var(--white);
 `;
