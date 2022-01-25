@@ -14,4 +14,10 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-family: sans-serif;
   }
+
+  .App {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
 `;

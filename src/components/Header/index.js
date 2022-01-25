@@ -1,7 +1,8 @@
 import React from 'react';
+import { Wrapper } from './header.style';
 
 const Header = () => {
-  return <div>DBZ memory card</div>;
+  return <Wrapper>DBZ memory card</Wrapper>;
 };
 
 export default Header;
