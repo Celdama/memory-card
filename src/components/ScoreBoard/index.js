@@ -1,11 +1,14 @@
 import React from 'react';
+import { Wrapper, Content } from './scoreboard.style';
 
 const ScoreBoard = ({ currentScore, bestScore }) => {
   return (
-    <div>
-      <span>current: {currentScore} </span>
-      <span>best score: {bestScore}</span>
-    </div>
+    <Wrapper>
+      <Content>
+        <span>Score: {currentScore}</span>
+        <span>Best Score: {bestScore}</span>
+      </Content>
+    </Wrapper>
   );
 };
 
