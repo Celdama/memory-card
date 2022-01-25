@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <Wrapper>
       <Content>
-        <Logo src={StarWarsIcon} />
+        <Logo src={StarWarsIcon} alt='Star Wars Icon' />
         <h1>Memory Game</h1>
       </Content>
     </Wrapper>

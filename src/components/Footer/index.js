@@ -10,7 +10,7 @@ const Footer = () => {
         <p>
           Copyright &copy;<span>{currentYear}</span>{' '}
           <a target='_blank' href='https://github.com/Celdama' rel='noreferrer'>
-            Celdama <i class='fab fa-github'></i>
+            Celdama <i className='fab fa-github'></i>
           </a>
         </p>
       </Content>
